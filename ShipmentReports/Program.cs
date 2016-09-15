@@ -78,6 +78,8 @@ namespace ShipmentReports
 
                     List<ShipmentsData> filteredData = new List<ShipmentsData>();
 
+                    int subReport = 1;
+
                     foreach (FiltersSettingsElement v in section.FiltersSettings)
                     {
                         string outputFileName = string.Format("{0}{1}.pdf", name, v.Suffix);
@@ -97,16 +99,17 @@ namespace ShipmentReports
                         try
                         {
                             outputFile = maker.MakeFinalReport(currentData);
-                            logger.Info(string.Format("===> Report creato correttamente. {0} kB totali.", outputFile.Length / 1024), 0, 0);
+                            logger.Info(string.Format("===> [{1}] Report creato correttamente. {0} kB totali.", outputFile.Length / 1024, subReport), 0, 0);
 
                             // Step #4: Writing the report
-                            File.WriteAllBytes(string.Format("{0}\\{1}", path, outputFileName), outputFile);
-                            logger.Info(string.Format("===> Report scritto correttamente: {0}. {1} Corrieri.", outputFileName, currentData.Shipments.Count), 0, 0);
+                            File.WriteAllBytes(Path.Combine(path, outputFileName), outputFile);
+                            logger.Info(string.Format("===> [{2}] Report scritto correttamente: {0}. {1} Corrieri.", outputFileName, currentData.Shipments.Count, subReport), 0, 0);
                         }
                         catch (Exception ex)
                         {
                             logger.Error(string.Format("Errore durante la creazione/scrittura del report {0}: {1}", outputFileName, ex.Message), 0, 0);
                         }
+                        subReport++;
                     }
 
                     if (info.Shipments.Count > 0)

@@ -114,7 +114,24 @@ namespace ShipmentReports.Maker.PDF
                     // Used to effectively create the page(s) associated to a given courier
                     document.NewPage();
                     document.Add(title);
-                    document.Add(table);
+
+                    if (table.Rows.Count > 1)
+                        document.Add(table);
+                    else
+                    {
+                        Paragraph noShipment = new Paragraph()
+                        {
+                            Alignment = 1
+                        };
+
+                        Chunk noShipmentMessage = new Chunk("Nessun ritiro.")
+                        {
+                            Font = new Font(Font.FontFamily.COURIER, 12, Font.BOLD)
+                        };
+
+                        noShipment.Add(noShipmentMessage);
+                        document.Add(noShipment);
+                    }
                 }
 
                 document.Close();
