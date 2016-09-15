@@ -9,7 +9,7 @@ namespace ShipmentReports.Logging.Console
 {
     public class ConsoleLogger : ILogger
     {
-        LoggingLevels mask = LoggingLevels.Erorr|LoggingLevels.Info| LoggingLevels.Warning | LoggingLevels.Debug;
+        LoggingLevels mask = LoggingLevels.Erorr|LoggingLevels.Info| LoggingLevels.Warning;
 
         object consoleLock = new object();
         public ConsoleLogger()

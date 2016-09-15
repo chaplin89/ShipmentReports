@@ -47,7 +47,7 @@ namespace ShipmentReports
             Console.WriteLine(@"In alternativa trascina una o più stampe testuali sull'icona del programma.");
             Console.WriteLine();
             Console.WriteLine(@"Un abbraccio,");
-            Console.WriteLine(@"ShipMyStuff");
+            Console.WriteLine(@"ShipmentReports");
         }
 
         public static void DoTheMagic(string[] filesToProcess)
