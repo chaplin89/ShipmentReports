@@ -7,7 +7,6 @@ namespace ShipmentReports.Common
     /// </summary>
     public class CourierInfo
     {
-        string name;
         List<Dictionary<ShipmentElement, string>> shipments = new List<Dictionary<ShipmentElement, string>>();
 
         #region Properties
@@ -38,7 +37,7 @@ namespace ShipmentReports.Common
 
         public override string ToString()
         {
-            return string.Format("{0}: {1}", name, Shipments.Count);
+            return string.Format("{0}: {1}", Name, Shipments.Count);
         }
     }
 }

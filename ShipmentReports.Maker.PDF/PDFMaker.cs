@@ -28,6 +28,7 @@ namespace ShipmentReports.Maker.PDF
         {
             Rectangle page = new Rectangle(PageSize.A4);
             PDFMakerSection section = ConfigurationManager.GetSection("PDFMaker") as PDFMakerSection;
+
             Dictionary<ShipmentElement, FinalReportSettingsElement> elementConfigurations = 
                 new Dictionary<ShipmentElement, FinalReportSettingsElement>();
 
@@ -54,17 +55,17 @@ namespace ShipmentReports.Maker.PDF
                 {
                     Chunk idPhrase = new Chunk(currentCourier.ID.ToString() + "  ")
                     {
-                        Font = new Font(Font.FontFamily.COURIER, 21, Font.BOLD)
+                        Font = FontFactory.GetFont(section.TitleFontName, section.IDFontSize, Font.BOLD, BaseColor.BLACK)
                     };
 
                     Chunk namePhrase = new Chunk(currentCourier.Name)
                     {
-                        Font = new Font(Font.FontFamily.COURIER, 12, Font.BOLD)
+                        Font = FontFactory.GetFont(section.TitleFontName, section.NameFontSize, Font.BOLD, BaseColor.BLACK)
                     };
 
                     Chunk dateChunk = new Chunk(shipments.Date)
                     {
-                        Font = new Font(Font.FontFamily.COURIER, 10, Font.BOLD)
+                        Font = FontFactory.GetFont(section.TitleFontName, section.DateFontSize, Font.BOLD, BaseColor.BLACK)
                     };
 
                     Paragraph title = new Paragraph()

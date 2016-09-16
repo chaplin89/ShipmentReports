@@ -14,7 +14,8 @@ namespace ShipmentReports.Parser.Textual
     {
         List<ShipmentElement> tableInfo;
         ILogger logger;
-        char[] linesToIgnore = new char[] { ' ', '-', '\f', (char)0xFF };
+        char[] linesToIgnore = new char[] { ' ', '-'};
+        char[] characterToSkip = new char[] { '\f', (char)0xFF };
         const char SEPARATOR_CHAR = '-';
         Regex courier = new Regex(@"Autista:\s*([0-9]+)\s*(.*)");
         string date;
@@ -40,6 +41,13 @@ namespace ShipmentReports.Parser.Textual
                 {
                     logger.Debug("Empty line found.", i, 0);
                     continue;
+                }
+
+                if (characterToSkip.Contains(lines[i][0]))
+                {
+                    lines[i] = lines[i].TrimStart(characterToSkip);
+                    if (lines[i].Length == 0)
+                        continue;
                 }
 
                 if (linesToIgnore.Contains(lines[i][0]))
@@ -176,7 +184,7 @@ namespace ShipmentReports.Parser.Textual
                 {
                     date = shipmentRecord.Single(x => x.Key.Name == "Data").Value;
                 }
-                catch (InvalidOperationException ex)
+                catch (InvalidOperationException)
                 {
                     logger.Warning("Impossibile recuperare le informazioni dal campo \"Data\". Verrà tentato con il prossimo record.",0,0);
                 }

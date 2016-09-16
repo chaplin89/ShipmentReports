@@ -13,6 +13,30 @@ namespace ShipmentReports.Maker.PDF
                 return (FinalReportSettingsCollection)base["finalReportSettings"];
             }
         }
+
+        [ConfigurationProperty("nameFontSize")]
+        public int NameFontSize
+        {
+            get { return (int)base["nameFontSize"]; }
+        }
+
+        [ConfigurationProperty("idFontSize")]
+        public int IDFontSize
+        {
+            get { return (int)base["idFontSize"]; }
+        }
+
+        [ConfigurationProperty("dateFontSize")]
+        public int DateFontSize
+        {
+            get { return (int)base["dateFontSize"]; }
+        }
+
+        [ConfigurationProperty("titleFontName")]
+        public string TitleFontName
+        {
+            get { return (string)base["titleFontName"]; }
+        }
     }
 
 
