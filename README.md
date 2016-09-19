@@ -7,8 +7,7 @@ Il software parserizza un file testuale contenente una lista di ritiri per produ
 
 Può essere usato in due modi:
 
--All'avvio il software controlla la presenza del file "Stampe testuali.txt" e in caso il file venisse trovato, viene processato
-
--Trascinando uno o più file testuali il software li carica e li processa
+* All'avvio il software controlla la presenza del file "Stampe testuali.txt" e in caso il file venisse trovato, viene processato
+* Trascinando uno o più file testuali il software li carica e li processa
 
 I file *.PDF in output vengono scritti nella stessa directory del file testuale in input.
