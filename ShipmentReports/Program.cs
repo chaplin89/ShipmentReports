@@ -1,18 +1,11 @@
-﻿using ShipmentReports.Common;
-using ShipmentReports.Logging.Console;
-using ShipmentReports.Logging.Interface;
-using ShipmentReports.Maker.Interface;
-using ShipmentReports.Maker.PDF;
-using ShipmentReports.Parser.Interface;
-using ShipmentReports.Parser.Textual;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
+﻿using System;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text.RegularExpressions;
+using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using System.Configuration;
+using ShipmentReports.Maker.Interface;
 
 namespace ShipmentReports
 {

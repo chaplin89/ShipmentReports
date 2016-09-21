@@ -1,4 +1,6 @@
-﻿using ShipmentReports.Common;
+﻿using Microsoft.Practices.Unity;
+using Microsoft.Practices.Unity.Configuration;
+using ShipmentReports.Common;
 using ShipmentReports.Logging.Console;
 using ShipmentReports.Logging.Interface;
 using ShipmentReports.Maker.Interface;
@@ -22,11 +24,15 @@ namespace ShipmentReports
         /// <param name="filesToProcess">Files to parse</param>
         public static void DoTheMagic(string[] filesToProcess)
         {
-            byte[] outputFile = null;
+            var unitySection = (UnityConfigurationSection)ConfigurationManager.GetSection("Unity");
+            IUnityContainer container = new UnityContainer();
+            unitySection.Configure(container);
 
-            ILogger logger = new ConsoleLogger();
-            IParser parser = new TextualParser(logger);
-            IMaker maker = new PDFMaker(logger);
+            IMaker maker = container.Resolve<IMaker>();
+            IParser parser = container.Resolve<IParser>();
+            ILogger logger = container.Resolve<ILogger>();
+
+            byte[] outputFile = null;
 
             int correctCounter = 0;
             int failedCounter = 0;
