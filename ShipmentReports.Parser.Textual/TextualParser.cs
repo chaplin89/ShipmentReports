@@ -12,14 +12,14 @@ namespace ShipmentReports.Parser.Textual
 {
     public class TextualParser : IParser
     {
-        List<ShipmentElement> tableInfo;
-        ILogger logger;
-        char[] linesToIgnore = new char[] { ' ', '-'};
-        char[] characterToSkip = new char[] { '\f', (char)0xFF };
-        const char SEPARATOR_CHAR = '-';
-        Regex courier = new Regex(@"Autista:\s*([0-9]+)\s*(.*)");
-        string date;
-        
+        private List<ShipmentElement> tableInfo;
+        private ILogger logger;
+        private char[] linesToIgnore = new char[] { ' ', '-'};
+        private char[] characterToSkip = new char[] { '\f', (char)0xFF };
+        private const char SEPARATOR_CHAR = '-';
+        private Regex courier = new Regex(@"Autista:\s*([0-9]+)\s*(.*)");
+        private string date;
+
         public TextualParser(ILogger logger)
         {
             this.logger = logger;
@@ -125,7 +125,7 @@ namespace ShipmentReports.Parser.Textual
         private List<ShipmentElement> HandleTableInfo(string tableHeader, string separators)
         {
             List<ShipmentElement> tableInfo = new List<ShipmentElement>();
-            
+
             int index = 0;
 
             while (index < separators.Length)

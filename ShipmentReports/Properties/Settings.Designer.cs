@@ -22,53 +22,5 @@ namespace ShipmentReports.Properties {
                 return defaultInstance;
             }
         }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("pffft")]
-        public string Setting {
-            get {
-                return ((string)(this["Setting"]));
-            }
-            set {
-                this["Setting"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fdspf")]
-        public string Setting1 {
-            get {
-                return ((string)(this["Setting1"]));
-            }
-            set {
-                this["Setting1"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fdspofids")]
-        public string Setting2 {
-            get {
-                return ((string)(this["Setting2"]));
-            }
-            set {
-                this["Setting2"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("fdsfopi")]
-        public string Setting3 {
-            get {
-                return ((string)(this["Setting3"]));
-            }
-            set {
-                this["Setting3"] = value;
-            }
-        }
     }
 }

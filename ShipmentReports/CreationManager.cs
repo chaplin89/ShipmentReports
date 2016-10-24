@@ -16,7 +16,7 @@ using System.Text.RegularExpressions;
 
 namespace ShipmentReports
 {
-    class CreationManager
+    internal class CreationManager
     {
         /// <summary>
         /// Manage the steps of parsing and creation of the various reports.

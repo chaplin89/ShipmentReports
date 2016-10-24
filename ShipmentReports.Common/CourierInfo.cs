@@ -7,7 +7,7 @@ namespace ShipmentReports.Common
     /// </summary>
     public class CourierInfo
     {
-        List<Dictionary<ShipmentElement, string>> shipments = new List<Dictionary<ShipmentElement, string>>();
+        private List<Dictionary<ShipmentElement, string>> shipments = new List<Dictionary<ShipmentElement, string>>();
 
         #region Properties
         /// <summary>
@@ -22,14 +22,8 @@ namespace ShipmentReports.Common
         /// </summary>
         public List<Dictionary<ShipmentElement, string>> Shipments
         {
-            get
-            {
-                return shipments;
-            }
-            set
-            {
-                shipments = value;
-            }
+            get { return shipments; }
+            set { shipments = value; }
         }
 
         public int ID { get; set; }

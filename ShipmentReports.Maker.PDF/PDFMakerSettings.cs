@@ -8,10 +8,7 @@ namespace ShipmentReports.Maker.PDF
         [ConfigurationCollection(typeof(FinalReportSettingsCollection), AddItemName = "field")]
         public FinalReportSettingsCollection FinalReportSettings
         {
-            get
-            {
-                return (FinalReportSettingsCollection)base["finalReportSettings"];
-            }
+            get { return (FinalReportSettingsCollection)base["finalReportSettings"]; }
         }
 
         [ConfigurationProperty("nameFontSize")]
@@ -38,7 +35,6 @@ namespace ShipmentReports.Maker.PDF
             get { return (string)base["titleFontName"]; }
         }
     }
-
 
     public class FinalReportSettingsCollection : ConfigurationElementCollection
     {
@@ -86,14 +82,8 @@ namespace ShipmentReports.Maker.PDF
         [ConfigurationProperty("sourceFieldName")]
         public string SourceFieldName
         {
-            get
-            {
-                return (string)base["sourceFieldName"];
-            }
-            set
-            {
-                base["sourceFieldName"] = value;
-            }
+            get { return (string)base["sourceFieldName"]; }
+            set { base["sourceFieldName"] = value; }
         }
 
         /// <summary>
@@ -102,14 +92,8 @@ namespace ShipmentReports.Maker.PDF
         [ConfigurationProperty("destinationFieldName")]
         public string DestinationFieldName
         {
-            get
-            {
-                return (string)base["destinationFieldName"];
-            }
-            set
-            {
-                base["destinationFieldName"] = value;
-            }
+            get { return (string)base["destinationFieldName"]; }
+            set { base["destinationFieldName"] = value; }
         }
 
         /// <summary>
@@ -118,14 +102,8 @@ namespace ShipmentReports.Maker.PDF
         [ConfigurationProperty("order")]
         public int Order
         {
-            get
-            {
-                return (int)base["orderInOutput"];
-            }
-            set
-            {
-                base["orderInOutput"] = value;
-            }
+            get { return (int)base["orderInOutput"]; }
+            set { base["orderInOutput"] = value; }
         }
     }
 }

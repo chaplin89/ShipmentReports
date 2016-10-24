@@ -9,15 +9,15 @@ using ShipmentReports.Maker.Interface;
 
 namespace ShipmentReports
 {
-    class Program
+    internal class Program
     {
-        const string DEFAULT_FILE_NAME = @"Stampe testuali.txt";
+        private const string DEFAULT_FILE_NAME = @"Stampe testuali.txt";
         public static int Main(string[] args)
         {
             Assembly assembly = Assembly.GetExecutingAssembly();
             FileVersionInfo fileVersionInfo = FileVersionInfo.GetVersionInfo(assembly.Location);
             string version = fileVersionInfo.ProductVersion;
-            
+
             string defaultFile = Path.Combine(Directory.GetCurrentDirectory(), DEFAULT_FILE_NAME);
 
             Console.WriteLine("Bevenuto!");

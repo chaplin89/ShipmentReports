@@ -9,9 +9,9 @@ namespace ShipmentReports.Logging.Console
 {
     public class ConsoleLogger : ILogger
     {
-        LoggingLevels mask = LoggingLevels.Erorr|LoggingLevels.Info| LoggingLevels.Warning;
+        private LoggingLevels mask = LoggingLevels.Erorr|LoggingLevels.Info| LoggingLevels.Warning;
 
-        object consoleLock = new object();
+        private object consoleLock = new object();
         public ConsoleLogger()
         {
             lock (consoleLock)
@@ -61,7 +61,7 @@ namespace ShipmentReports.Logging.Console
                 System.Console.WriteLine("[I] {0},{1}: {2}", line, pos, message);
                 System.Console.ForegroundColor = originalColor;
             }
-        }  
+        }
 
         public void Warning(string message, int line, int pos)
         {

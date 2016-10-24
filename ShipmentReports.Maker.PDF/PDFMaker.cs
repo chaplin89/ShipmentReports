@@ -13,7 +13,7 @@ namespace ShipmentReports.Maker.PDF
 {
     public class PDFMaker : IMaker
     {
-        ILogger logger;
+        private ILogger logger;
 
         public PDFMaker(ILogger logger)
         {
@@ -29,7 +29,7 @@ namespace ShipmentReports.Maker.PDF
             Rectangle page = new Rectangle(PageSize.A4);
             PDFMakerSection section = ConfigurationManager.GetSection("PDFMaker") as PDFMakerSection;
 
-            Dictionary<ShipmentElement, FinalReportSettingsElement> elementConfigurations = 
+            Dictionary<ShipmentElement, FinalReportSettingsElement> elementConfigurations =
                 new Dictionary<ShipmentElement, FinalReportSettingsElement>();
 
             // Merge the configuration with the info retrieved
@@ -117,7 +117,9 @@ namespace ShipmentReports.Maker.PDF
                     document.Add(title);
 
                     if (table.Rows.Count > 1)
+                    {
                         document.Add(table);
+                    }
                     else
                     {
                         Paragraph noShipment = new Paragraph()
@@ -135,7 +137,6 @@ namespace ShipmentReports.Maker.PDF
                     }
                 }
 
-                document.Close();
                 return stream.ToArray();
             }
         }

@@ -8,13 +8,9 @@ namespace ShipmentReports.Common
         [ConfigurationCollection(typeof(FiltersSettingsCollection), AddItemName = "filter")]
         public FiltersSettingsCollection FiltersSettings
         {
-            get
-            {
-                return (FiltersSettingsCollection)base["filtersSettings"];
-            }
+            get { return (FiltersSettingsCollection)base["filtersSettings"]; }
         }
     }
-
 
     public class FiltersSettingsCollection : ConfigurationElementCollection
     {
@@ -62,14 +58,8 @@ namespace ShipmentReports.Common
         [ConfigurationProperty("pattern")]
         public string Pattern
         {
-            get
-            {
-                return (string)base["pattern"];
-            }
-            set
-            {
-                base["pattern"] = value;
-            }
+            get { return (string)base["pattern"]; }
+            set { base["pattern"] = value; }
         }
 
         /// <summary>
@@ -78,14 +68,8 @@ namespace ShipmentReports.Common
         [ConfigurationProperty("suffix")]
         public string Suffix
         {
-            get
-            {
-                return (string)base["suffix"];
-            }
-            set
-            {
-                base["suffix"] = value;
-            }
+            get { return (string)base["suffix"]; }
+            set { base["suffix"] = value; }
         }
     }
 }

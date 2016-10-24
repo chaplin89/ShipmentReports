@@ -10,7 +10,6 @@ namespace ShipmentReports.Test
         public void TestMethod1()
         {
             string[] args = new string[] { @"C:\Users\marco.fornaro\Downloads\ShipmentReports\ShipmentReports\bin\Debug\Stampa.txt" };
-
         }
     }
 }

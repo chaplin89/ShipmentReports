@@ -10,8 +10,8 @@ namespace ShipmentReports.Logging.Textual
 {
     public class TextualLogger : ILogger
     {
-        static object fileLock = new object();
-        FileStream logfile = File.Open(@".\log.txt", FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
+        private static object fileLock = new object();
+        private FileStream logfile = File.Open(@".\log.txt", FileMode.OpenOrCreate, FileAccess.Write, FileShare.ReadWrite);
 
         public TextualLogger()
         {
@@ -49,7 +49,6 @@ namespace ShipmentReports.Logging.Textual
 
         public void SetMask(LoggingLevels mask)
         {
-            throw new NotImplementedException();
         }
 
         public void Warning(string message, int line, int pos)
